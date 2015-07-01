@@ -24,11 +24,11 @@ public class PriorityHashMap<K extends Comparable, V> implements Iterable<Map.En
     private MyList<Tuple<K,V> >[] buckets;
     Heap<K> heap;
     
-    PriorityHashMap() {
+    public PriorityHashMap() {
         this(INIT_CAPACITY);
     }
     
-    PriorityHashMap(int initialCapacity) {
+    public PriorityHashMap(int initialCapacity) {
         int capacity = 1;
         while (capacity < initialCapacity) {
             capacity <<= 1;
