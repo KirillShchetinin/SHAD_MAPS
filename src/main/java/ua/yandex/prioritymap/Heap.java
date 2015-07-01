@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
  * @author Кирилл
  * @param <Key>
  */
-public class Heap<Key> implements Iterable<Key> {
+class Heap<Key> implements Iterable<Key> {
     private Key[] heap;                   
     private int size;                       
     private Comparator<Key> comparator;  
