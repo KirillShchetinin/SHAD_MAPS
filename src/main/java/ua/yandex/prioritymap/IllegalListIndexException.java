@@ -1,4 +1,5 @@
-package ua.yandex.collections;
+package ua.yandex.prioritymap;
+
 
 /**
  *

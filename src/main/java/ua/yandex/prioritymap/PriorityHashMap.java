@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
  * @param <K>
  * @param <V>
  */
-public class PriorityHashMap<K, V> implements Iterable<Map.Entry<K, V>> { 
+public class PriorityHashMap<K extends Comparable, V> implements Iterable<Map.Entry<K, V>> { 
     
     private final static double CRITICAL_LOAD = 0.75f;
     private final static int INIT_CAPACITY = 8;
@@ -144,30 +144,23 @@ public class PriorityHashMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return new PriorityHashMap.HashIterator();
     }
     
-    class HashIterator implements Iterator {
+    class HashIterator implements Iterator<Map.Entry<K,V>> {
         
-        Iterator heapIterator;
+        Iterator keyIterator;
 
         HashIterator() {
-            heapIterator = heap.iterator();
+            keyIterator = heap.iterator();
         }
 
         @Override
         public final boolean hasNext() {
-            return heapIterator.hasNext();
+            return keyIterator.hasNext();
         }
 
         @Override
         public Tuple<K, V> next() {
-            K key = (K) heapIterator.next();
-            V value = PriorityHashMap.this.get(key);
-
-            return new Tuple<>(key, value);
+            K key = (K) keyIterator.next();
+            return new Tuple(key, get(key));
         }
-
-        @Override
-        public void remove() {
-        }
-
     }
 }
