@@ -15,7 +15,9 @@ import java.util.NoSuchElementException;
  * @param <K>
  * @param <V>
  */
-public class PriorityHashMap<K extends Comparable, V> implements Iterable<Map.Entry<K, V>> { 
+
+public class PriorityHashMap<K extends Comparable, V> 
+                implements Iterable<Map.Entry<K, V>> { 
     
     private final static double CRITICAL_LOAD = 0.75f;
     private final static int INIT_CAPACITY = 8;
