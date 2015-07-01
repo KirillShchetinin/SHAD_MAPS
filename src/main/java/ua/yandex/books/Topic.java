@@ -11,21 +11,16 @@ package ua.yandex.books;
  */
 public enum Topic {
     
-    COMPUTING, FANTASY, CLASSICS, FICTION;
+    COMPUTING("programming"), FANTASY("fantasy"), CLASSICS("classic"), FICTION("fiction");
+    
+    private final String handle;
+    
+    Topic(String name) {
+        handle = name;
+    }
     
     @Override
     public String toString() {
-        switch(this) {
-            case COMPUTING:
-                return "programming";
-            case FANTASY:
-                return "fantasy";
-            case CLASSICS:
-                return "classic";
-            case FICTION:
-                return "fiction";
-            default:
-                return "";
-        }
+        return handle;
     }
 }
